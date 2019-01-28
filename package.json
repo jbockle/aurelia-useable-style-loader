@@ -1,6 +1,6 @@
 {
   "name": "aurelia-useable-style-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically loads/unloads styles using webpack's style-loader/useable",
   "main": "dist/native-modules/index.js",
   "typings": "dist/index.d.ts",
