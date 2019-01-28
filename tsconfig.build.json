@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist/amd",
+  },
+  "exclude": [
+    ".vscode",
+    "dist",
+    "node_modules",
+    "test"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "aurelia-useable-style-loader",
+  "version": "0.0.1",
+  "description": "Automatically loads/unloads styles using webpack's style-loader/useable",
+  "main": "dist/native-modules/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build:amd": "cross-env tsc --project tsconfig.build.json --outDir dist/amd --module amd --declaration --declarationDir dist",
+    "prebuild:commonjs": "cross-env rimraf dist/commonjs",
+    "build:commonjs": "cross-env tsc --project tsconfig.build.json --outDir dist/commonjs --module commonjs",
+    "prebuild:es2015": "cross-env rimraf dist/es2015",
+    "build:es2015": "cross-env tsc --project tsconfig.build.json --outDir dist/es2015 --module es2015 --target es2015",
+    "prebuild:native-modules": "cross-env rimraf dist/native-modules",
+    "build:native-modules": "cross-env tsc --project tsconfig.build.json --outDir dist/native-modules --module es2015",
+    "prebuild:system": "cross-env rimraf dist/system",
+    "build:system": "cross-env tsc --project tsconfig.build.json --outDir dist/system --module system",
+    "prebuild": "cross-env rimraf dist && rimraf node_modules/@types/!node",
+    "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:native-modules\" \"npm run build:system\""
+  },
+  "keywords": [
+    "aurelia",
+    "webpack",
+    "style-loader",
+    "useable"
+  ],
+  "author": "jbockle",
+  "license": "MIT",
+  "dependencies": {
+    "aurelia-logging": "^1.5.1"
+  },
+  "peerDependencies": {
+    "style-loader": "~0.23.1",
+    "webpack": "^4.29.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "jest": "^24.0.0",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
+  }
+}
