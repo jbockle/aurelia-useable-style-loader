@@ -1,1 +1,1 @@
-export * from './aurelia-useable-style-loader';
+export * from './style-loader';

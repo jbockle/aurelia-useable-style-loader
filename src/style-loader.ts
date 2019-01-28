@@ -2,9 +2,9 @@ import { getLogger, Logger } from 'aurelia-logging';
 import getLifecycleMethod from './get-lifecycle-method';
 import { CtorLike, IAuLifecycle, IStyleLoader } from './helper-types';
 
-export class UseableStyleLoader {
+export class StyleLoader {
   public static logger: Logger = getLogger('aurelia-useable-style-loader');
-  public static apply(styleLoader: { use: () => void, unuse: () => void }) {
+  public static use(styleLoader: { use: () => void, unuse: () => void }) {
 
     this.logger.debug(`preparing to apply useStyles decorator`, styleLoader);
 
@@ -26,7 +26,7 @@ export class UseableStyleLoader {
     // tslint:disable-next-line:max-classes-per-file
     return class extends ctor {
       public async attached(): Promise<void> {
-        UseableStyleLoader.logger.debug(`loading styles for ${ctor.name}`);
+        StyleLoader.logger.debug(`loading styles for ${ctor.name}`);
 
         styleLoader.use();
 
@@ -34,7 +34,7 @@ export class UseableStyleLoader {
       }
 
       public async detached(): Promise<void> {
-        UseableStyleLoader.logger.debug(`unloading styles for ${ctor.name}`);
+        StyleLoader.logger.debug(`unloading styles for ${ctor.name}`);
 
         styleLoader.unuse();
 

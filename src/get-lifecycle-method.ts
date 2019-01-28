@@ -1,8 +1,8 @@
-import { UseableStyleLoader } from './aurelia-useable-style-loader';
 import { AuLifecycleMethod, CtorLike } from './helper-types';
+import { StyleLoader } from './style-loader';
 
 function voidLifecycle(method: string): () => Promise<void> {
-  UseableStyleLoader.logger.debug(`executing void callback for ${method}`);
+  StyleLoader.logger.debug(`executing void callback for ${method}`);
   return (): Promise<void> => Promise.resolve();
 }
 
