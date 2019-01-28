@@ -1,7 +1,13 @@
 {
   "name": "aurelia-useable-style-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically loads/unloads styles using webpack's style-loader/useable",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbockle/aurelia-useable-style-loader"
+  },
+  "author": "jbockle",
+  "license": "MIT",
   "main": "dist/native-modules/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -23,8 +29,6 @@
     "style-loader",
     "useable"
   ],
-  "author": "jbockle",
-  "license": "MIT",
   "dependencies": {
     "aurelia-logging": "^1.5.1"
   },

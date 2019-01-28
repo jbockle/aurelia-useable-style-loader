@@ -6,7 +6,26 @@ webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#
 
 ## installation
 
-npm install aurelia-useable-style-loader
+`npm install aurelia-useable-style-loader`
+
+add a custom typings file for your imported scss/css files
+
+```typescript
+interface IUseableStyleLoader {
+  use: () => void;
+  unuse: () => void;
+}
+
+declare module '*.scss' {
+  const style: IUseableStyleLoader;
+  export default style;
+}
+
+declare module '*.css' {
+  const style: IUseableStyleLoader;
+  export default style;
+}
+```
 
 ## usage
 
