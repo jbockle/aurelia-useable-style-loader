@@ -1,8 +1,11 @@
 # aurelia-useable-style-loader
 
-Automatically load/unload styles using webpack style-loader/useable.  The imported style's use/unused are called automatically from aurelia's lifecycle methods for attached and detached.  This ensures that the style is only loaded into view if an component/element is currently requiring it.
+Automatically load/unload styles using webpack style-loader/useable.  The imported style's use/unused are called automatically from aurelia's view engine hook lifecycle methods for beforeBind/beforeUnbind.  This ensures that the style is only loaded into view if an component/element is currently requiring it.
 
 webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#useable
+
+![alt text](./example.gif "example")
+
 
 ## installation
 
