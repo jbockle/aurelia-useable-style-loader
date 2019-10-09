@@ -27,11 +27,11 @@ webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#
         rules: [
           {
             test: /\.css$/,
-            use: ['style-loader/useable', 'css-loader']
+            use: [{ loader: 'style-loader', options: { injectType: 'styleTag' } }, 'css-loader']
           },
           {
             test: /\.scss$/,
-            use: ['style-loader/useable', 'css-loader', 'sass-loader']
+            use: [{ loader: 'style-loader', options: { injectType: 'styleTag' } }, 'css-loader', 'sass-loader']
           }
         ]
       }
