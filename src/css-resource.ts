@@ -40,7 +40,7 @@ export class CSSResource {
       styleModule = await loader.loadModule(this.address);
       if (!('use' in styleModule!) || !('unuse' in styleModule!)) {
         // tslint:disable-next-line:max-line-length
-        throw new Error('the css module does not have use/unuse methods available, are you missing the style-loader/useable loader rule?');
+        throw new Error(`the css module does not have use/unuse methods available, are you missing the style-loader 'lazyStyleTag' injectType?`);
       }
     } catch (e) {
       this._logger.error(`an error occurred while loading the css module`, e);

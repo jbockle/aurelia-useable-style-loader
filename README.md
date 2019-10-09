@@ -2,7 +2,7 @@
 
 Automatically load/unload styles using webpack style-loader/useable.  The imported style's use/unused are called automatically from aurelia's view engine hook lifecycle methods for beforeBind/beforeUnbind.  This ensures that the style is only loaded into view if an component/element is currently requiring it.
 
-webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#useable
+webpack `style-loader injectType 'lazyStyleTag'` https://github.com/webpack-contrib/style-loader#lazystyletag
 
 ![alt text](./example.gif "example")
 
@@ -19,7 +19,7 @@ webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#
     }
     ```
 
-3. configure/replace webpack loader rules to use style-loader/useable
+3. configure/replace webpack loader rules to use style-loader with injectType `lazyStyleTag`  
     `webpack.config.js`
     ```javascript
     {
@@ -27,11 +27,11 @@ webpack `style-loader/useable`: https://github.com/webpack-contrib/style-loader#
         rules: [
           {
             test: /\.css$/,
-            use: ['style-loader/useable', 'css-loader']
+            use: [{ loader: 'style-loader', options: { injectType: 'lazyStyleTag' } }, 'css-loader']
           },
           {
             test: /\.scss$/,
-            use: ['style-loader/useable', 'css-loader', 'sass-loader']
+            use: [{ loader: 'style-loader', options: { injectType: 'lazyStyleTag' } }, 'css-loader', 'sass-loader']
           }
         ]
       }
